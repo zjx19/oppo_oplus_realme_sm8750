@@ -509,6 +509,9 @@ jobs:
               wget https://github.com/$GITHUB_REPOSITORY/raw/refs/heads/$GITHUB_REF_NAME/droidspaces_patch/evdi_drm.patch
               patch -p1 -F 3 < evdi_drm.patch || true
               echo "CONFIG_DRM_LINDROID_EVDI=y" >> ./arch/arm64/configs/gki_defconfig
+              # 添加overlay额外配置，测试是否能解决docker问题
+              echo "CONFIG_OVERLAY_FS_REDIRECT_DIR=y" >> ./arch/arm64/configs/gki_defconfig
+              echo "CONFIG_OVERLAY_FS_INDEX=y" >> ./arch/arm64/configs/gki_defconfig
             fi
           fi
 
