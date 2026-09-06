@@ -494,9 +494,9 @@ jobs:
             # 未经测试的配置选项，可能导致bug
             echo "CONFIG_CGROUP_DEVICE=y" >> ./arch/arm64/configs/gki_defconfig
             echo "CONFIG_CGROUP_PIDS=y" >> ./arch/arm64/configs/gki_defconfig
-            echo "CONFIG_FW_LOADER_COMPRESS=y" >> ./arch/arm64/configs/gki_defconfig
-            echo "CONFIG_BRIDGE_NETFILTER=y" >> ./arch/arm64/configs/gki_defconfig
-            echo "CONFIG_NF_TABLES=y" >> ./arch/arm64/configs/gki_defconfig
+            #echo "CONFIG_FW_LOADER_COMPRESS=y" >> ./arch/arm64/configs/gki_defconfig
+            #echo "CONFIG_BRIDGE_NETFILTER=y" >> ./arch/arm64/configs/gki_defconfig
+            #echo "CONFIG_NF_TABLES=y" >> ./arch/arm64/configs/gki_defconfig
             # 开启 NTSync
             echo "CONFIG_NTSYNC=y" >> ./arch/arm64/configs/gki_defconfig
             if [[ "${{ github.event.inputs.droidspaces_enable }}" == "extend" ]]; then
@@ -510,8 +510,8 @@ jobs:
               patch -p1 -F 3 < evdi_drm.patch || true
               echo "CONFIG_DRM_LINDROID_EVDI=y" >> ./arch/arm64/configs/gki_defconfig
               # 添加overlay额外配置，测试是否能解决docker问题
-              echo "CONFIG_OVERLAY_FS_REDIRECT_DIR=y" >> ./arch/arm64/configs/gki_defconfig
-              echo "CONFIG_OVERLAY_FS_INDEX=y" >> ./arch/arm64/configs/gki_defconfig
+              #echo "CONFIG_OVERLAY_FS_REDIRECT_DIR=y" >> ./arch/arm64/configs/gki_defconfig
+              #echo "CONFIG_OVERLAY_FS_INDEX=y" >> ./arch/arm64/configs/gki_defconfig
             fi
           fi
 
